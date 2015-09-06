@@ -55,7 +55,7 @@ module Paxx
       if name && counter < name.length
         name[0..counter]
       else
-        "#{name}#{counter-name.length}"
+        "#{name}#{counter-name.length+1}"
       end
     end
 

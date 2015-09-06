@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Paxx::NameNormalizer do
-  let(:keys){ ["TestA","TestAa","TestAas","TestAase"]}
+  let(:keys){ ["TestA","TestAa","TestAas","TestAase","TestAasen"]}
   let(:name1) {'Test Åsen'}
   let(:normalizer) {Paxx::NameNormalizer.new(name1)}
 
@@ -41,7 +41,7 @@ describe Paxx::NameNormalizer do
         keys.index(name).nil?
       end
 
-      expect( result).to eq("TestAasen")
+      expect( result).to eq("TestAasen1")
     end
 
   end
