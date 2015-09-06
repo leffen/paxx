@@ -28,7 +28,7 @@ module Paxx
     end
 
     def camelize(txt=name)
-      txt.split(/[^a-zøæåØÆÅ0-9]/i).map { |w| w.capitalize }.join
+      txt.split(/[^a-zøæåØÆÅ0-9]/i).map { |w| w.capitalize }.join if txt
     end
 
     def splitt
@@ -39,12 +39,13 @@ module Paxx
         first_name = words.join(" ")
       else
         first_name = name
+        last_name=""
       end
       [camelize(first_name), camelize(last_name)]
     end
 
     def as_id(txt=name)
-      subst_norwegian_chars(txt.delete(" ").delete("-")).downcase
+      subst_norwegian_chars(txt.delete(" ").delete("-")).downcase if txt
     end
 
     def compose_short_ref first,last
@@ -60,9 +61,9 @@ module Paxx
     end
 
     def as_short_ref
-      counter = 1
+      counter = 0
       unique = !block_given?
-      xref =  last_part(camelize(as_id(last_name)),counter)
+      xref =  ""
       start = camelize(as_id(first_name))
 
       begin
