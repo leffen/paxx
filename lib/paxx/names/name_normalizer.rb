@@ -1,5 +1,6 @@
 module Paxx
-
+  require 'babosa'
+  
   class NameNormalizer
     attr_reader :name, :first_name, :last_name, :full_name
 
@@ -80,7 +81,9 @@ module Paxx
       shortref
     end
 
-
+    def as_slug(txt=name)
+      txt.to_s.to_slug.normalize(transliterations: :norwegian).to_s
+    end
   end
 
 end

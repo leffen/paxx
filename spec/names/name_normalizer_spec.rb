@@ -28,7 +28,6 @@ describe Paxx::NameNormalizer do
       expect( normalizer.as_short_ref).to eq("Test")
     end
 
-
   end
 
   context "Norwegian names" do
@@ -71,6 +70,11 @@ describe Paxx::NameNormalizer do
       end
 
       expect( result).to eq("TestAasen1")
+    end
+
+    it  "should make a slug" do
+      expect(normalizer.as_slug).to eq("test-aasen")
+
     end
 
 
