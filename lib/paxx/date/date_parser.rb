@@ -2,7 +2,7 @@ module Paxx
   class DateParser
 
     def decode(src)
-      return src if src.is_a?(Time)
+      return src if src.is_a?(Time) || src.is_a?(DateTime)
       return nil unless src && src.rstrip.length > 7
 
       len = src.to_s.strip.length
